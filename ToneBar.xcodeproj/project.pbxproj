@@ -1,0 +1,341 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B10000000000000000000001 /* ToneBarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000001 /* ToneBarApp.swift */; };
+		B10000000000000000000002 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000002 /* MenuBarView.swift */; };
+		B10000000000000000000003 /* TapConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000003 /* TapConfiguration.swift */; };
+		B10000000000000000000004 /* ProcessEnumerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000004 /* ProcessEnumerator.swift */; };
+		B10000000000000000000005 /* RingBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000005 /* RingBuffer.swift */; };
+		B10000000000000000000006 /* DeviceMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000006 /* DeviceMonitor.swift */; };
+		B10000000000000000000007 /* SystemAudioTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000007 /* SystemAudioTap.swift */; };
+		B10000000000000000000008 /* AudioPipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000008 /* AudioPipeline.swift */; };
+		B10000000000000000000009 /* AudioSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000009 /* AudioSessionController.swift */; };
+		B10000000000000000000010 /* EQProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000010 /* EQProcessor.swift */; };
+		B10000000000000000000011 /* PresetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000011 /* PresetStore.swift */; };
+		B10000000000000000000012 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F10000000000000000000012 /* Assets.xcassets */; };
+		B10000000000000000000020 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10000000000000000000020 /* CoreAudio.framework */; };
+		B10000000000000000000021 /* AVFAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10000000000000000000021 /* AVFAudio.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E10000000000000000000001 /* ToneBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToneBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F10000000000000000000001 /* ToneBarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToneBarApp.swift; sourceTree = "<group>"; };
+		F10000000000000000000002 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		F10000000000000000000003 /* TapConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapConfiguration.swift; sourceTree = "<group>"; };
+		F10000000000000000000004 /* ProcessEnumerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessEnumerator.swift; sourceTree = "<group>"; };
+		F10000000000000000000005 /* RingBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingBuffer.swift; sourceTree = "<group>"; };
+		F10000000000000000000006 /* DeviceMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceMonitor.swift; sourceTree = "<group>"; };
+		F10000000000000000000007 /* SystemAudioTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemAudioTap.swift; sourceTree = "<group>"; };
+		F10000000000000000000008 /* AudioPipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPipeline.swift; sourceTree = "<group>"; };
+		F10000000000000000000009 /* AudioSessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionController.swift; sourceTree = "<group>"; };
+		F10000000000000000000010 /* EQProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQProcessor.swift; sourceTree = "<group>"; };
+		F10000000000000000000011 /* PresetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetStore.swift; sourceTree = "<group>"; };
+		F10000000000000000000012 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F10000000000000000000020 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		F10000000000000000000021 /* AVFAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFAudio.framework; path = System/Library/Frameworks/AVFAudio.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C10000000000000000000003 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000000000000000000020 /* CoreAudio.framework in Frameworks */,
+				B10000000000000000000021 /* AVFAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		G10000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				G10000000000000000000002 /* ToneBar */,
+				G10000000000000000000003 /* Products */,
+				G10000000000000000000004 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		G10000000000000000000002 /* ToneBar */ = {
+			isa = PBXGroup;
+			children = (
+				G10000000000000000000005 /* App */,
+				G10000000000000000000006 /* Audio */,
+				G10000000000000000000007 /* EQ */,
+				G10000000000000000000008 /* Resources */,
+			);
+			path = ToneBar;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E10000000000000000000001 /* ToneBar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000004 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000020 /* CoreAudio.framework */,
+				F10000000000000000000021 /* AVFAudio.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000005 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000001 /* ToneBarApp.swift */,
+				F10000000000000000000002 /* MenuBarView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000006 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000003 /* TapConfiguration.swift */,
+				F10000000000000000000004 /* ProcessEnumerator.swift */,
+				F10000000000000000000005 /* RingBuffer.swift */,
+				F10000000000000000000006 /* DeviceMonitor.swift */,
+				F10000000000000000000007 /* SystemAudioTap.swift */,
+				F10000000000000000000008 /* AudioPipeline.swift */,
+				F10000000000000000000009 /* AudioSessionController.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000007 /* EQ */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000010 /* EQProcessor.swift */,
+				F10000000000000000000011 /* PresetStore.swift */,
+			);
+			path = EQ;
+			sourceTree = "<group>";
+		};
+		G10000000000000000000008 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F10000000000000000000012 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		T10000000000000000000001 /* ToneBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = L10000000000000000000002 /* Build configuration list for PBXNativeTarget "ToneBar" */;
+			buildPhases = (
+				C10000000000000000000001 /* Sources */,
+				C10000000000000000000003 /* Frameworks */,
+				C10000000000000000000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ToneBar;
+			productName = ToneBar;
+			productReference = E10000000000000000000001 /* ToneBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		P10000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					T10000000000000000000001 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = L10000000000000000000001 /* Build configuration list for PBXProject "ToneBar" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = G10000000000000000000001;
+			productRefGroup = G10000000000000000000003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				T10000000000000000000001 /* ToneBar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C10000000000000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000000000000000000012 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C10000000000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B10000000000000000000001 /* ToneBarApp.swift in Sources */,
+				B10000000000000000000002 /* MenuBarView.swift in Sources */,
+				B10000000000000000000003 /* TapConfiguration.swift in Sources */,
+				B10000000000000000000004 /* ProcessEnumerator.swift in Sources */,
+				B10000000000000000000005 /* RingBuffer.swift in Sources */,
+				B10000000000000000000006 /* DeviceMonitor.swift in Sources */,
+				B10000000000000000000007 /* SystemAudioTap.swift in Sources */,
+				B10000000000000000000008 /* AudioPipeline.swift in Sources */,
+				B10000000000000000000009 /* AudioSessionController.swift in Sources */,
+				B10000000000000000000010 /* EQProcessor.swift in Sources */,
+				B10000000000000000000011 /* PresetStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		X10000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		X10000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		X10000000000000000000003 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ToneBar;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAudioCaptureUsageDescription = "ToneBar applies equalizer settings to system or per-app audio playback.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.christianryn.tonebar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		X10000000000000000000004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ToneBar;
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAudioCaptureUsageDescription = "ToneBar applies equalizer settings to system or per-app audio playback.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 0.1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.christianryn.tonebar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		L10000000000000000000001 /* Build configuration list for PBXProject "ToneBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				X10000000000000000000001 /* Debug */,
+				X10000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		L10000000000000000000002 /* Build configuration list for PBXNativeTarget "ToneBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				X10000000000000000000003 /* Debug */,
+				X10000000000000000000004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = P10000000000000000000001 /* Project object */;
+}
