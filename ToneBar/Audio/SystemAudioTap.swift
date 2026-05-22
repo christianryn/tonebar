@@ -164,7 +164,7 @@ final class SystemAudioTap {
         var procID: AudioDeviceIOProcID?
         // Block order: inNow, inInputData, inInputTime, outOutputData, inOutputTime
         let status = AudioDeviceCreateIOProcIDWithBlock(&procID, aggregateDeviceID, nil) { [weak self] _, inInputData, _, _, _ in
-            guard let self, let inInputData else { return }
+            guard let self else { return }
             let bufferList = UnsafeMutableAudioBufferListPointer(
                 UnsafeMutablePointer(mutating: inInputData)
             )
