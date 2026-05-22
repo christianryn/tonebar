@@ -6,7 +6,7 @@ struct AudioProcess: Identifiable, Hashable {
     let pid: pid_t
     let name: String
 
-    var id: AudioObjectID { processObjectID }
+    var id: pid_t { pid }
 }
 
 enum ProcessEnumerator {
@@ -47,7 +47,7 @@ enum ProcessEnumerator {
 
     private static func makeProcess(_ objectID: AudioObjectID) -> AudioProcess? {
         guard let pid = readPID(objectID) else { return nil }
-        let name = resolveName(objectID: objectID, pid: pid)
+        let name = resolveName(pid: pid)
         return AudioProcess(processObjectID: objectID, pid: pid, name: name)
     }
 
@@ -63,26 +63,14 @@ enum ProcessEnumerator {
         return status == noErr ? pid : nil
     }
 
-    private static func readBundleID(_ objectID: AudioObjectID) -> String? {
-        var address = AudioObjectPropertyAddress(
-            mSelector: kAudioProcessPropertyBundleID,
-            mScope: kAudioObjectPropertyScopeGlobal,
-            mElement: kAudioObjectPropertyElementMain
-        )
-        var bundleID: CFString = "" as CFString
-        var size = UInt32(MemoryLayout<CFString>.stride)
-        let status = withUnsafeMutablePointer(to: &bundleID) { pointer in
-            AudioObjectGetPropertyData(objectID, &address, 0, nil, &size, pointer)
-        }
-        guard status == noErr else { return nil }
-        return bundleID as String
-    }
-
-    private static func resolveName(objectID: AudioObjectID, pid: pid_t) -> String {
-        if let bundleID = readBundleID(objectID),
-           let app = NSRunningApplication.runningApplications(withBundleIdentifier: bundleID).first,
-           let localizedName = app.localizedName {
-            return localizedName
+    private static func resolveName(pid: pid_t) -> String {
+        if let app = NSRunningApplication(processIdentifier: pid) {
+            if let localizedName = app.localizedName, !localizedName.isEmpty {
+                return localizedName
+            }
+            if let bundleID = app.bundleIdentifier {
+                return bundleID
+            }
         }
         return "PID \(pid)"
     }

@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    @EnvironmentObject private var session: AudioSessionController
+
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             HStack(spacing: 10) {
@@ -19,8 +21,8 @@ struct WelcomeView: View {
             Divider()
 
             Label("Click the slider icon in the menu bar (top-right of the screen).", systemImage: "menubar.arrow.up.rectangle")
-            Label("Turn **On**, pick **All Audio** or **Selected App**, then play music.", systemImage: "power")
-            Label("Grant **Screen & System Audio Recording** when macOS asks.", systemImage: "lock.shield")
+            Label("Turn On, pick All Audio or Selected App, then play music.", systemImage: "power")
+            Label("Grant Screen & System Audio Recording when macOS asks.", systemImage: "lock.shield")
 
             Text("You can close this window — ToneBar keeps running in the menu bar.")
                 .font(.caption)
@@ -36,5 +38,8 @@ struct WelcomeView: View {
         }
         .padding(20)
         .frame(minWidth: 380, minHeight: 260)
+        .task {
+            session.refreshProcesses()
+        }
     }
 }

@@ -6,7 +6,7 @@ import Foundation
 final class AudioSessionController: ObservableObject {
     @Published var mode: EQMode = .allSystem
     @Published var isEnabled = false
-    @Published var selectedProcessID: AudioObjectID?
+    @Published var selectedProcessPID: pid_t?
     @Published private(set) var processes: [AudioProcess] = []
     @Published var bandGains: [Float] = Array(repeating: 0, count: 10)
     @Published var outputGain: Float = 0
@@ -21,7 +21,6 @@ final class AudioSessionController: ObservableObject {
     private var ringBuffer: RingBuffer?
 
     init() {
-        refreshProcesses()
         deviceMonitor.onDefaultOutputChanged = { [weak self] in
             Task { @MainActor in
                 self?.reconfigureIfRunning()
@@ -31,9 +30,9 @@ final class AudioSessionController: ObservableObject {
 
     func refreshProcesses() {
         processes = ProcessEnumerator.fetchProcesses()
-        if let selectedProcessID,
-           !processes.contains(where: { $0.processObjectID == selectedProcessID }) {
-            self.selectedProcessID = nil
+        if let selectedProcessPID,
+           !processes.contains(where: { $0.pid == selectedProcessPID }) {
+            self.selectedProcessPID = nil
         }
     }
 
@@ -106,13 +105,37 @@ final class AudioSessionController: ObservableObject {
     private func makeTapConfiguration() throws -> TapConfiguration {
         switch mode {
         case .allSystem:
-            return .global(excludingProcessObjectIDs: [])
+            return .global(excludingProcessObjectIDs: Self.currentProcessObjectIDs())
         case .selectedApp:
-            guard let selectedProcessID else {
+            guard let selectedProcessPID,
+                  let process = processes.first(where: { $0.pid == selectedProcessPID }) else {
                 throw SessionError.noProcessSelected
             }
-            return .processes([selectedProcessID])
+            return .processes([process.processObjectID])
         }
+    }
+
+    /// Exclude ToneBar from the global tap to avoid capturing our own playback.
+    private static func currentProcessObjectIDs() -> [AudioObjectID] {
+        let pid = ProcessInfo.processInfo.processIdentifier
+        var address = AudioObjectPropertyAddress(
+            mSelector: kAudioHardwarePropertyTranslatePIDToProcessObject,
+            mScope: kAudioObjectPropertyScopeGlobal,
+            mElement: kAudioObjectPropertyElementMain
+        )
+        var processObject = AudioObjectID(kAudioObjectUnknown)
+        var pidValue = Int32(pid)
+        var size = UInt32(MemoryLayout<AudioObjectID>.size)
+        let status = AudioObjectGetPropertyData(
+            AudioObjectID(kAudioObjectSystemObject),
+            &address,
+            UInt32(MemoryLayout<pid_t>.size),
+            &pidValue,
+            &size,
+            &processObject
+        )
+        guard status == noErr, processObject != kAudioObjectUnknown else { return [] }
+        return [processObject]
     }
 }
 

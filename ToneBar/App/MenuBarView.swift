@@ -1,4 +1,3 @@
-import CoreAudio
 import SwiftUI
 
 struct MenuBarView: View {
@@ -16,6 +15,9 @@ struct MenuBarView: View {
         }
         .padding(16)
         .frame(width: 320)
+        .onAppear {
+            session.refreshProcesses()
+        }
     }
 
     private var header: some View {
@@ -66,13 +68,13 @@ struct MenuBarView: View {
                 .buttonStyle(.borderless)
                 .font(.caption)
             }
-            Picker("Application", selection: $session.selectedProcessID) {
-                Text("Select an app…").tag(Optional<AudioObjectID>.none)
+            Picker("Application", selection: $session.selectedProcessPID) {
+                Text("Select an app…").tag(pid_t?.none)
                 ForEach(session.processes) { process in
-                    Text(process.name).tag(Optional(process.processObjectID))
+                    Text(process.name).tag(Optional(process.pid))
                 }
             }
-            .onChange(of: session.selectedProcessID) { _, _ in
+            .onChange(of: session.selectedProcessPID) { _, _ in
                 session.reconfigure()
             }
         }

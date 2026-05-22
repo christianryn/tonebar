@@ -25,7 +25,8 @@ final class RingBuffer {
         while remaining > 0 {
             let chunk = min(remaining, capacity - writeIndex)
             storage.withUnsafeMutableBufferPointer { buffer in
-                buffer.baseAddress!.advanced(by: writeIndex)
+                guard let base = buffer.baseAddress else { return }
+                base.advanced(by: writeIndex)
                     .update(from: samples.advanced(by: sourceOffset), count: chunk)
             }
             writeIndex = (writeIndex + chunk) % capacity
@@ -45,8 +46,9 @@ final class RingBuffer {
         while remaining > 0 {
             let chunk = min(remaining, capacity - readIndex)
             storage.withUnsafeBufferPointer { buffer in
+                guard let base = buffer.baseAddress else { return }
                 destination.advanced(by: destinationOffset)
-                    .update(from: buffer.baseAddress!.advanced(by: readIndex), count: chunk)
+                    .update(from: base.advanced(by: readIndex), count: chunk)
             }
             readIndex = (readIndex + chunk) % capacity
             destinationOffset += chunk

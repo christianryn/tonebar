@@ -1,6 +1,7 @@
 import SwiftUI
 
 @main
+@MainActor
 struct ToneBarApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     @StateObject private var session = AudioSessionController()
