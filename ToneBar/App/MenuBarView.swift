@@ -1,3 +1,4 @@
+import CoreAudio
 import SwiftUI
 
 struct MenuBarView: View {
