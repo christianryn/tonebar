@@ -7,7 +7,7 @@ Open-source macOS menu bar audio equalizer using **Core Audio Taps** (no virtual
 - **All system audio** — EQ everything playing on your Mac
 - **Per application** — pick one app (e.g. Spotify); only that app is EQ'd
 - 10-band graphic EQ with output gain
-- Menu bar UI (no Dock icon)
+- Menu bar UI + welcome window on launch
 
 ## Requirements
 
@@ -28,7 +28,8 @@ In Xcode:
 1. Select the **ToneBar** scheme and your Mac as the destination.
 2. Set your **Signing Team** under Target → Signing & Capabilities (for local run).
 3. Press **⌘R** to build and run.
-4. Click the **waveform** icon in the menu bar and enable EQ.
+4. A **welcome window** should appear; click the **slider** icon in the menu bar (top-right) to open the EQ panel.
+5. Turn **On** and grant **Screen & System Audio Recording** if prompted.
 
 If `xcodebuild` fails with “requires Xcode”, point the active developer directory at full Xcode:
 
