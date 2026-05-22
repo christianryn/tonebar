@@ -22,7 +22,7 @@ final class AudioPipeline {
         self.ringBuffer = ringBuffer
         engine.reset()
 
-        let frameCapacity = Int(format.sampleRate * 0.05)
+        _ = Int(format.sampleRate * 0.05)
         self.ringBuffer = ringBuffer
 
         let node = AVAudioSourceNode(format: format) { [weak self] _, _, frameCount, inputBuffer in
