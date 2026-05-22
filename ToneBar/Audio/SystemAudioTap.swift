@@ -162,9 +162,12 @@ final class SystemAudioTap {
 
     private func registerIOProc() throws {
         var procID: AudioDeviceIOProcID?
-        let status = AudioDeviceCreateIOProcIDWithBlock(&procID, aggregateDeviceID, nil) { [weak self] _, _, inputData, _, _ in
-            guard let self, let inputData else { return }
-            let bufferList = UnsafeMutableAudioBufferListPointer(inputData)
+        // Block order: inNow, inInputData, inInputTime, outOutputData, inOutputTime
+        let status = AudioDeviceCreateIOProcIDWithBlock(&procID, aggregateDeviceID, nil) { [weak self] _, inInputData, _, _, _ in
+            guard let self, let inInputData else { return }
+            let bufferList = UnsafeMutableAudioBufferListPointer(
+                UnsafeMutablePointer(mutating: inInputData)
+            )
             guard let firstBuffer = bufferList.first, let data = firstBuffer.mData else { return }
             let sampleCount = Int(firstBuffer.mDataByteSize) / MemoryLayout<Float>.size
             self.onPCMBuffer?(data.assumingMemoryBound(to: Float.self), sampleCount)
