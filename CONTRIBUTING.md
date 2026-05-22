@@ -9,7 +9,7 @@
 ## Build & run
 
 1. Clone the repo and open the Xcode project.
-2. Build the `MacEQ` scheme (⌘B) and run (⌘R).
+2. Build the `ToneBar` scheme (⌘B) and run (⌘R).
 3. On first run, grant **Screen & System Audio Recording** when prompted.
 
 ## Testing both EQ modes

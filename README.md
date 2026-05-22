@@ -1,6 +1,6 @@
-# mac-eq
+# ToneBar
 
-Open-source macOS audio equalizer using **Core Audio Taps** (no virtual audio driver).
+Open-source macOS menu bar audio equalizer using **Core Audio Taps** (no virtual audio driver).
 
 ## Features (planned)
 
@@ -17,9 +17,9 @@ Open-source macOS audio equalizer using **Core Audio Taps** (no virtual audio dr
 ## Build
 
 ```bash
-git clone git@github.com:christianryn/mac-eq.git
-cd mac-eq
-open MacEQ.xcodeproj   # available after Xcode project is added
+git clone git@github.com:christianryn/tonebar.git
+cd tonebar
+open ToneBar.xcodeproj   # available after Xcode project is added
 ```
 
 > **Note:** The Xcode project is being added incrementally. Check commits on `main` for the latest scaffold.
